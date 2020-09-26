@@ -2,9 +2,9 @@
 
 # Initial Variables:
 
-Host=${Host:-black.less.dk}
-SSHUser=${SSHUser:-root}
-AdminEmail=${AdminEmail:-sebastian@less.dk}
+Host=${Host:-server.example.com}
+SSHUser=${SSHUser:-username}
+AdminEmail=${AdminEmail:-you@example.com}
 
 # Derive Variables:
 
@@ -66,7 +66,8 @@ TTN_LW_CONSOLE_OAUTH_TOKEN_URL=https://${Host}/oauth/token
 ########## logout redirects - are those needed? ##############################
 #This first one is needed - else we default to localhost for logout
 TTN_LW_CONSOLE_OAUTH_LOGOUT_URL=https://${Host}/oauth/logout
-TTN_LW_CONSOLE_OAUTH_REDIRECT_LOGOUT_URL=https://${Host}
+# this i m not sure about (yet)
+#TTN_LW_CONSOLE_OAUTH_REDIRECT_LOGOUT_URL=https://${Host}
 
 ######### http redirect to https, optional #########################
 #TTN_LW_HTTP_REDIRECT-TO-TLS
