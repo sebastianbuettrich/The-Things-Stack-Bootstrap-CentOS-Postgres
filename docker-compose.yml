@@ -1,0 +1,49 @@
+version: "3.9"
+
+services:
+
+  postgres:
+    image: postgres
+    restart: unless-stopped
+    environment:
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_USER=root
+      - POSTGRES_DB=ttn_lorawan
+    volumes:
+      - './data/postgres:/var/lib/postgresql/data'
+    ports:
+      - "127.0.0.1:5432:5432"
+
+  redis:
+    image: 'redis:latest' # TODO: Tag for production.
+    command: 'redis-server --appendonly yes'
+    restart: 'unless-stopped'
+    volumes:
+      - './data/redis:/data'
+
+  stack:
+    image: 'thethingsnetwork/lorawan-stack:latest' # TODO: Tag for production.
+    entrypoint: 'ttn-lw-stack'
+    command: 'start'
+    restart: 'unless-stopped'
+    depends_on:
+      - 'postgres'
+      - 'redis'
+    volumes:
+      - './acme:/var/lib/acme'
+      - './data/blob:/srv/ttn-lorawan/public/blob'
+    ports:
+      - '80:1885'
+      - '443:8885'
+      - '1881:1881'
+      - '8881:8881'
+      - '1882:1882'
+      - '8882:8882'
+      - '1883:1883'
+      - '8883:8883'
+      - '1884:1884'
+      - '8884:8884'
+      - '1887:1887'
+      - '8887:8887'
+      - '1700:1700/udp'
+    env_file: '.env'
