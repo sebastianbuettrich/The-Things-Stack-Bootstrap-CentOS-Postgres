@@ -3,7 +3,10 @@ Script to bootstrap The Things Stack v3, with docker on CentOS, using postgreSQL
 
 This is based on Hylke Visser's bootstrap script,
 https://gist.github.com/htdvisser/4503f30699308a7fd9e0aa3ebc2f3eb4
-(thanks!), with the only changes being:
+(thanks!), 
+and thus based on the Getting Started Guide, https://thethingsstack.io/getting-started/
+
+with the only changes being:
 
   * prepare.sh adapted to CentOS 7 instead of Ubuntu 18
   * using postgreSQL instead of cockroach SQL
@@ -12,7 +15,7 @@ https://gist.github.com/htdvisser/4503f30699308a7fd9e0aa3ebc2f3eb4
  
  ## Preparation
 
-- Clone this..
+- Clone this.
 - Spin up a fresh CentOS7 server.
   - Var `SSHUser`: the username that will be used to SSH into the server. This user must be able to `sudo`.
 - Point a public DNS record to your server's IP address. It may take some time before this resolves.
