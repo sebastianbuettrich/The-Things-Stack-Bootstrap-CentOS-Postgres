@@ -11,7 +11,7 @@ with the only changes being:
   * prepare.sh adapted to CentOS 7 instead of Ubuntu 18
   * using postgreSQL instead of cockroach SQL
  
- Else all instructions are equally valid, as given in link above:
+ Else all instructions are equally valid, as given in link above, quoted here in edited form:
  
  ## Preparation
 
